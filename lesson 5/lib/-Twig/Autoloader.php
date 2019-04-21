@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 @trigger_error('The Twig_Autoloader class is deprecated since version 1.21 and will be removed in 2.0. Use Composer instead.', E_USER_DEPRECATED);
+
 /**
  * Autoloads Twig classes.
  *
@@ -31,6 +32,7 @@ class Twig_Autoloader
             spl_autoload_register(array(__CLASS__, 'autoload'), true, $prepend);
         }
     }
+
     /**
      * Handles autoloading of classes.
      *
@@ -41,7 +43,7 @@ class Twig_Autoloader
         if (0 !== strpos($class, 'Twig')) {
             return;
         }
-        if (is_file($file = dirname(__FILE__).'/../'.str_replace(array('_', "\0"), array('/', ''), $class).'.php')) {
+        if (is_file($file = dirname(__FILE__) . '/../' . str_replace(array('_', "\0"), array('/', ''), $class) . '.php')) {
             require $file;
         }
     }

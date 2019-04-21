@@ -20,11 +20,6 @@ class migrate extends Command
         return true;
     }
 
-    protected function migrationExists($name)
-    {
-        return count(db::getInstance()->Select('SELECT migration FROM migrations WHERE migration=:name', ['name' => $name])) > 0;
-    }
-
     protected function getMigrations()
     {
         $migrationsDir = opendir(Config::get('path_migrations'));
@@ -36,6 +31,11 @@ class migrate extends Command
         }
         sort($migrations);
         return $migrations;
+    }
+
+    protected function migrationExists($name)
+    {
+        return count(db::getInstance()->Select('SELECT migration FROM migrations WHERE migration=:name', ['name' => $name])) > 0;
     }
 }
 

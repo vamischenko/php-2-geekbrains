@@ -7,7 +7,8 @@ namespace system\components;
  * @package system\components
  *
  */
-class Router extends BaseObject {
+class Router extends BaseObject
+{
 
     /**
      * @var Controller Current controller
@@ -19,7 +20,8 @@ class Router extends BaseObject {
      */
     private $_action = false;
 
-    public function __construct(string $route) {
+    public function __construct(string $route)
+    {
         $route = explode('/', $route);
         $namespace = App::$current->config['controllerNamespace'];
 
@@ -39,7 +41,8 @@ class Router extends BaseObject {
         }
     }
 
-    public function route() {
+    public function route()
+    {
         try {
             $this->_controller->executeAction(
                 $this->_action,
@@ -50,11 +53,13 @@ class Router extends BaseObject {
         }
     }
 
-    public function getController() {
+    public function getController()
+    {
         return $this->_controller;
     }
 
-    public function getAction() {
+    public function getAction()
+    {
         return $this->_action;
     }
 

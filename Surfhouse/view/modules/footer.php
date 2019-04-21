@@ -51,16 +51,21 @@
         </div>
         <div class="about">
             <h4>About Us</h4>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et&nbsp;magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque&nbsp;eu, pretium quis, sem.</p>
-            <p><span class="phone-email">Phone:&nbsp;&nbsp;</span><a href="tel:1-999-342-9876" class="phone">&nbsp;&nbsp;1-999-342-9876</a></p>
-            <p><span class="phone-email">e-mail:&nbsp;&nbsp;</span><a href="mailto:info@surfhouse.com" class="email">&nbsp;&nbsp;info@surfhouse.com</a></p>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                Cum sociis natoque penatibus et&nbsp;magnis dis parturient montes, nascetur ridiculus mus. Donec quam
+                felis, ultricies nec, pellentesque&nbsp;eu, pretium quis, sem.</p>
+            <p><span class="phone-email">Phone:&nbsp;&nbsp;</span><a href="tel:1-999-342-9876" class="phone">&nbsp;&nbsp;1-999-342-9876</a>
+            </p>
+            <p><span class="phone-email">e-mail:&nbsp;&nbsp;</span><a href="mailto:info@surfhouse.com" class="email">&nbsp;&nbsp;info@surfhouse.com</a>
+            </p>
         </div>
     </div>
 </div>
 <div class="copyright">
     <div class="copyright-container">
-        <p>&copy;&nbsp;<?php echo date('Y'); ?>&nbsp;SURFHOUSE. All rights reserved - Designed by <a href="https://www.theuncreativelab.com" target="_blank">theuncreativelab.com</a></p>
-         <div class="footer-social">
+        <p>&copy;&nbsp;<?php echo date('Y'); ?>&nbsp;SURFHOUSE. All rights reserved - Designed by <a
+                    href="https://www.theuncreativelab.com" target="_blank">theuncreativelab.com</a></p>
+        <div class="footer-social">
             <a href="#" class="fa fa-facebook" aria-hidden="true"></a>
             <a href="#" class="fa fa-twitter" aria-hidden="true"></a>
             <a href="#" class="fa fa-pinterest-p" aria-hidden="true"></a>

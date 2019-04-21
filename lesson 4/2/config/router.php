@@ -3,9 +3,10 @@
 /** Список маршрутов
  * @return array
  */
-function getRoutes() {
+function getRoutes()
+{
 
-    $routes =  array(
+    $routes = array(
         'product' => CONTROLLER_DIR . 'products/product.php',
         'products' => CONTROLLER_DIR . 'products/list.php',
         'productsNextShow' => CONTROLLER_DIR . 'products/products_next_show.php',
@@ -28,7 +29,8 @@ function getRoutes() {
  * @param $aliasName
  * @return bool|mixed
  */
-function getRoute($aliasName) {
+function getRoute($aliasName)
+{
     if (array_key_exists($aliasName, getRoutes())) {
         $r = getRoutes();
         return $r[$aliasName];

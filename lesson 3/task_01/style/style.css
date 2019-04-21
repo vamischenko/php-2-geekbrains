@@ -1,47 +1,56 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
-h3{
+
+h3 {
     margin: 20px 0 0 20px;
     font-family: sans-serif;
 }
-.gallery{
+
+.gallery {
     margin: 40px 0 20px 20px;
     display: inline-flex;
     padding: 10px 0 10px 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
 }
-.gallery__item{
+
+.gallery__item {
     margin-right: 10px;
     border: 1px solid #ccc;
     height: 75px;
     overflow: hidden;
 }
-.gallery__item img{
+
+.gallery__item img {
     width: 120px;
 
 }
-.add-pict{
+
+.add-pict {
     margin: 0 0 0 20px;
 
 }
-.error > div{
+
+.error > div {
     color: red;
     border: 1px solid red;
 }
-.success{
+
+.success {
     color: forestgreen;
     border: 1px solid forestgreen;
 }
-.error{
+
+.error {
     position: absolute;
     top: 230px;
 }
+
 .error > div,
-.success{
+.success {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -55,8 +64,9 @@ h3{
     position: relative;
     z-index: 3;
 }
+
 .error > div > span,
-.success > span{
+.success > span {
     width: 10px;
     height: 10px;
     position: absolute;
@@ -66,26 +76,32 @@ h3{
     left: 10%;
     background: #ffffff;
 }
-.error > div > span{
+
+.error > div > span {
     border-left: 1px solid red;
     border-top: 1px solid red;
 }
+
 .success > span {
     border-left: 1px solid forestgreen;
     border-top: 1px solid forestgreen;
 }
-h2{
+
+h2 {
     margin: 20px 0 20px;
 }
-.big-photo{
+
+.big-photo {
     display: inline-flex;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
 }
-.index a{
+
+.index a {
     color: rgba(0, 0, 0, .5);
     font-weight: 700;
 }
-.index a:hover{
+
+.index a:hover {
     color: black;
 }

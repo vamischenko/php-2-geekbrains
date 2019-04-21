@@ -1,9 +1,9 @@
 <?php
-require_once MODEL_DIR.'user/user.php';
+require_once MODEL_DIR . 'user/user.php';
 
 $user = new User('user');
 
-if($user->isLogin()){
+if ($user->isLogin()) {
     header("Location: /?page=userCabinet");
     exit;
 }
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $password = $_POST['password'];
     $result = $user->login($login, $password);
 
-    if ($result){
+    if ($result) {
         header("Location: /?page=userCabinet");
         exit;
     }
@@ -23,4 +23,4 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 }
 
 
-echo render('login', array('message'=>$message));
+echo render('login', array('message' => $message));

@@ -1,34 +1,34 @@
 $(document).ready(function () {
 
-   $(document).on('click', '#login-btn', function () {
-       let login = $('#login').val();
-       let password = $('#password').val();
+    $(document).on('click', '#login-btn', function () {
+        let login = $('#login').val();
+        let password = $('#password').val();
 
-       $.ajax({
-           url: "/user/login/",
-           type: "POST",
-           dataType: "text",
-           cache: false,
-           data: {
-               login: login,
-               password: password
-           },
+        $.ajax({
+            url: "/user/login/",
+            type: "POST",
+            dataType: "text",
+            cache: false,
+            data: {
+                login: login,
+                password: password
+            },
 
-           success: function(data) {
+            success: function (data) {
 
-               alert(data);
-           },
+                alert(data);
+            },
 
-           error: function (error) {
-               console.log(error);
-           }
+            error: function (error) {
+                console.log(error);
+            }
 
-       });
+        });
 
-       console.log(login);
-       console.log(password);
+        console.log(login);
+        console.log(password);
 
-   });
+    });
 
 
 });

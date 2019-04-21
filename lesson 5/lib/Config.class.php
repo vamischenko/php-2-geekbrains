@@ -38,4 +38,5 @@ class Config
         return self::$configCache;
     }
 }
+
 ?>

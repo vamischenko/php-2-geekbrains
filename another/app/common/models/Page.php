@@ -5,6 +5,7 @@ namespace app\common\models;
 
 use system\components\ActiveRecord;
 
-class Page extends ActiveRecord {
+class Page extends ActiveRecord
+{
 
 }

@@ -10,11 +10,10 @@ class User
         $this->sessionKey = $sessionKey;
     }
 
-    public function login ($login, $password)
+    public function login($login, $password)
     {
 
         $password = $this->hashPass($password);
-
 
 
         $sql = "SELECT `id`, `name`, `login` FROM `user` WHERE `login` = :login AND `password` = :password";
@@ -22,12 +21,11 @@ class User
         $this->user = db::getInstance()->Select($sql, array('login' => $login, 'password' => $password));
 
 
-
         if (!empty($this->user)) {
             @session_start();
-            $_SESSION[$this->sessionKey]['id']         = $this->user['id'];
-            $_SESSION[$this->sessionKey]['name']       = $this->user['name'];
-            $_SESSION[$this->sessionKey]['login']      = $this->user['login'];
+            $_SESSION[$this->sessionKey]['id'] = $this->user['id'];
+            $_SESSION[$this->sessionKey]['name'] = $this->user['name'];
+            $_SESSION[$this->sessionKey]['login'] = $this->user['login'];
             $_SESSION[$this->sessionKey]['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 
             return true;
@@ -47,24 +45,24 @@ class User
         return $password;
     }
 
+    public function getUser()
+    {
+
+        if ($this->isLogin()) {
+            $this->user = $_SESSION[$this->sessionKey];
+        }
+        return $this->user;
+    }
+
     public function isLogin()
     {
-        if(isset($_SESSION[$this->sessionKey]) ||
+        if (isset($_SESSION[$this->sessionKey]) ||
             $_SESSION[$this->sessionKey]['user_agent'] == $_SERVER['HTTP_USER_AGENT']
         ) {
             return true;
         }
 
         return false;
-    }
-
-    public function getUser()
-    {
-
-        if($this->isLogin()){
-            $this->user = $_SESSION[$this->sessionKey];
-        }
-        return $this->user;
     }
 
     public function logOut()

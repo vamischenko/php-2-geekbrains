@@ -12,7 +12,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title><?=$title?></title>
+    <title><?= $title ?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="scripts/script.js" defer></script>
     <link rel="stylesheet" href="styles/style.css">
@@ -22,39 +22,39 @@
 </head>
 
 <body>
-    <div class="<?=$this->action=='index'?'header header-index':'header'?><?=$this->action=='contact'?' header-contact':''?>">
-        <div class="header-container">
-            <a href="./" class="logo"></a>
-            <div class="header-social<?=$this->action=='contact'?' header-social-contact':''?>">
-                <?php include 'modules/header-social.php'; ?>
-            </div>
-            <div class="clr"></div>
-            <!-- <div class="cart cart-index">
-                <a href="cart.php" class="fa fa-shopping-cart fa-2x" aria-hidden="true"></a>
-            </div> -->
-            <?php if (isset($this->action) && $this->action == 'index') include 'modules/header-index.php'?>
-        </div>
-    </div>
-
-    <div class="main">
-        <div class="main-container">
-            <div class="navy">
-                <ul class="<?=$this->action=='index'?'menu menu-index':'menu'?>">
-                    <?php include 'modules/menu.php'; ?>
-                </ul>
-                <div class="aside">
-                    <a href="#">now is open!</a>
-                </div>
-            </div>
-			<div class="content">
-				<?=$content?>
-			</div>
-            <?php include 'modules/social.php'; ?>
+<div class="<?= $this->action == 'index' ? 'header header-index' : 'header' ?><?= $this->action == 'contact' ? ' header-contact' : '' ?>">
+    <div class="header-container">
+        <a href="./" class="logo"></a>
+        <div class="header-social<?= $this->action == 'contact' ? ' header-social-contact' : '' ?>">
+            <?php include 'modules/header-social.php'; ?>
         </div>
         <div class="clr"></div>
+        <!-- <div class="cart cart-index">
+            <a href="cart.php" class="fa fa-shopping-cart fa-2x" aria-hidden="true"></a>
+        </div> -->
+        <?php if (isset($this->action) && $this->action == 'index') include 'modules/header-index.php' ?>
     </div>
+</div>
 
-    <?php include 'modules/footer.php'; ?>
+<div class="main">
+    <div class="main-container">
+        <div class="navy">
+            <ul class="<?= $this->action == 'index' ? 'menu menu-index' : 'menu' ?>">
+                <?php include 'modules/menu.php'; ?>
+            </ul>
+            <div class="aside">
+                <a href="#">now is open!</a>
+            </div>
+        </div>
+        <div class="content">
+            <?= $content ?>
+        </div>
+        <?php include 'modules/social.php'; ?>
+    </div>
+    <div class="clr"></div>
+</div>
+
+<?php include 'modules/footer.php'; ?>
 
 </body>
 

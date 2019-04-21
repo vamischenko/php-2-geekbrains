@@ -6,7 +6,8 @@ namespace system\components;
  * Class Request
  * @package system\components
  */
-class Request extends BaseObject {
+class Request extends BaseObject
+{
 
     public $route;
     public $redirectedFrom;
@@ -14,7 +15,8 @@ class Request extends BaseObject {
     /**
      * Request constructor.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->redirectedFrom = isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : false;
 
         if (empty($this->get('route'))) {
@@ -28,7 +30,8 @@ class Request extends BaseObject {
      * @param string|null $key
      * @return mixed
      */
-    public function get(string $key = null) {
+    public function get(string $key = null)
+    {
         if (is_null($key)) {
             // remove 'route' param from GET
             $data = $_GET;
@@ -44,7 +47,8 @@ class Request extends BaseObject {
      * @param string|null $key
      * @return mixed
      */
-    public function post(string $key = null) {
+    public function post(string $key = null)
+    {
         if (is_null($key)) {
             return $_POST;
         } else {
@@ -55,21 +59,24 @@ class Request extends BaseObject {
     /**
      * @return bool
      */
-    public function isPost() {
+    public function isPost()
+    {
         return ($_SERVER['REQUEST_METHOD'] == 'POST');
     }
 
     /**
      * @return bool
      */
-    public function isGet() {
+    public function isGet()
+    {
         return ($_SERVER['REQUEST_METHOD'] == 'GET');
     }
 
     /**
      * @return bool
      */
-    public function isAjax() {
+    public function isAjax()
+    {
         $flag = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']))
             ? strtolower($_SERVER['HTTP_X_REQUESTED_WITH'])
             : 'normal';
@@ -81,7 +88,8 @@ class Request extends BaseObject {
      * @param string|null $url
      * @param bool $isGlobal
      */
-    public function redirect(string $url = null, $isGlobal = false) {
+    public function redirect(string $url = null, $isGlobal = false)
+    {
         $redirect = "//";
 
         if (!is_null($url)) {
@@ -101,7 +109,8 @@ class Request extends BaseObject {
     /**
      * Return to previous page
      */
-    public function goBack() {
+    public function goBack()
+    {
         header('Location: ' . $this->redirectedFrom);
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 class CategoriesController extends Controller
 {
 
@@ -11,4 +12,5 @@ class CategoriesController extends Controller
         return ['subcategories' => $categories, 'goods' => $goods];
     }
 }
+
 ?>

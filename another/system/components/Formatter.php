@@ -6,7 +6,8 @@ namespace system\components;
  * Class Formatter
  * @package system\components
  */
-class Formatter {
+class Formatter
+{
 
     /**
      * Normalizes controller and action names from URL
@@ -14,7 +15,8 @@ class Formatter {
      * @param $value
      * @return string
      */
-    public static function fromRoute($value) {
+    public static function fromRoute($value)
+    {
         return implode(
             '',
             array_map(
@@ -26,10 +28,24 @@ class Formatter {
         );
     }
 
-    public static function integer($value) {}
-    public static function float($value) {}
-    public static function bool($value) {}
-    public static function string($value) {}
-    public static function email($value) {}
+    public static function integer($value)
+    {
+    }
+
+    public static function float($value)
+    {
+    }
+
+    public static function bool($value)
+    {
+    }
+
+    public static function string($value)
+    {
+    }
+
+    public static function email($value)
+    {
+    }
 
 }

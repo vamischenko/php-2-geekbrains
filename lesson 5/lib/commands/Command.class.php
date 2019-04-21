@@ -3,8 +3,8 @@
 abstract class Command implements ICommand
 {
     public static $description = 'Here is a basic description of command';
-    
-    public final function run($arguments) 
+
+    public final function run($arguments)
     {
         $commandName = get_class($this);
         Logger::Write('Executing "' . $commandName . '"', true);

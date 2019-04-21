@@ -2,7 +2,8 @@
 
 namespace system\components;
 
-abstract class Controller extends BaseObject {
+abstract class Controller extends BaseObject
+{
 
     /**
      * @var string Controller name
@@ -23,7 +24,8 @@ abstract class Controller extends BaseObject {
      * Controller constructor.
      * @param string $name
      */
-    public function __construct() {
+    public function __construct()
+    {
         $class = explode('\\', static::class);
 
         $this->name = strtolower(str_replace(
@@ -37,7 +39,8 @@ abstract class Controller extends BaseObject {
      * @param string $view
      * @param array $params
      */
-    public function render(string $view, array $params = []) {
+    public function render(string $view, array $params = [])
+    {
         if (App::$current->request->isAjax()) {
             echo json_encode($params);
         } else {
@@ -56,7 +59,8 @@ abstract class Controller extends BaseObject {
      * @param $params
      * @return mixed
      */
-    public function executeAction($actionName, $params) {
+    public function executeAction($actionName, $params)
+    {
         if (method_exists($this, $actionName)) {
             return $this->$actionName(
                 ...array_values($params)

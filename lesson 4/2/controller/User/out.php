@@ -1,5 +1,5 @@
 <?php
-require_once MODEL_DIR.'user/user.php';
+require_once MODEL_DIR . 'user/user.php';
 
 $user = new User('user');
 

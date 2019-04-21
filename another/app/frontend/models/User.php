@@ -12,8 +12,10 @@ use system\components\ActiveRecord;
  * Class User
  * @package app\frontend\models
  */
-class User extends ActiveRecord {
-    public static function Auth() {
+class User extends ActiveRecord
+{
+    public static function Auth()
+    {
         if ($_SESSION['user_id']) {
             return true;
         }

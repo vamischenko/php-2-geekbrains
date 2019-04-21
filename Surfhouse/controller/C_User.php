@@ -6,15 +6,17 @@ include_once('model/User.class.php');
 
 class C_User extends C_Base
 {
-		
-    public function action_info() {
+
+    public function action_info()
+    {
         $get_user = new User();
         $user_info = $get_user->getUser($_SESSION['user_id']);
-        $this->title .= ' | '.$user_info['name'];
+        $this->title .= ' | ' . $user_info['name'];
         $this->content = $this->Template('view/v_userinfo.php', array('username' => $user_info['name']));
     }
-    
-    public function action_register() {
+
+    public function action_register()
+    {
         $this->title .= ' | Register';
         $this->content = $this->Template('view/v_register.php', array());
 
@@ -25,7 +27,8 @@ class C_User extends C_Base
         }
     }
 
-    public function action_login() {
+    public function action_login()
+    {
         $this->title .= ' | Enter';
         $this->content = $this->Template('view/v_login.php', array());
 
@@ -36,7 +39,8 @@ class C_User extends C_Base
         }
     }
 
-    public function action_logout() {
+    public function action_logout()
+    {
         $logout = new User();
         $result = $logout->logout();
     }

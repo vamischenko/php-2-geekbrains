@@ -1,19 +1,21 @@
 <?php
+
 class UserController extends Controller
 {
 
     public $view = 'user';
     public $title;
     private $user;
-    public function index($data)
-    {
-        return array();
-    }
 
     function __construct()
     {
         $this->user = new User('user');
         parent::__construct();
+    }
+
+    public function index($data)
+    {
+        return array();
     }
 
     public function login($data)

@@ -2,9 +2,15 @@
 
 namespace system\components;
 
-trait Singleton {
+trait Singleton
+{
 
-    private function __clone() {}
-    private function __wakeup() {}
+    private function __clone()
+    {
+    }
+
+    private function __wakeup()
+    {
+    }
 
 }

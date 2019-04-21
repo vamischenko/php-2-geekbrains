@@ -1,4 +1,5 @@
 <?php
+
 class db
 {
     private static $_instance = null;
@@ -8,6 +9,15 @@ class db
     /*
      * Получаем объект для работы с БД
      */
+
+    private function __construct()
+    {
+    }
+
+    /*
+     * Запрещаем копировать объект
+     */
+
     public static function getInstance()
     {
         if (self::$_instance == null) {
@@ -16,17 +26,6 @@ class db
         return self::$_instance;
     }
 
-    /*
-     * Запрещаем копировать объект
-     */
-    private function __construct() {}
-    private function __sleep() {}
-    private function __wakeup() {}
-    private function __clone() {}
-
-    /*
-     * Выполняем соединение с базой данных
-     */
     public function Connect($user, $password, $base, $host = 'localhost', $port = 3306)
     {
         // Формируем строку соединения с сервером
@@ -39,9 +38,14 @@ class db
         );
     }
 
-    /*
-     * Выполнить запрос к БД
-     */
+    public function Select($query, $params = array())
+    {
+        $result = $this->Query($query, $params);
+        if ($result) {
+            return $result->fetchAll();
+        }
+    }
+
     public function Query($query, $params = array())
     {
         $res = $this->db->prepare($query);
@@ -50,14 +54,28 @@ class db
     }
 
     /*
+     * Выполняем соединение с базой данных
+     */
+
+    private function __sleep()
+    {
+    }
+
+    /*
+     * Выполнить запрос к БД
+     */
+
+    private function __wakeup()
+    {
+    }
+
+    /*
      * Выполнить запрос с выборкой данных
      */
-    public function Select($query, $params = array())
+
+    private function __clone()
     {
-        $result = $this->Query($query, $params);
-        if ($result) {
-            return $result->fetchAll();
-        }
     }
 }
+
 ?>

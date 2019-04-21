@@ -1,4 +1,5 @@
 <?php
+
 class M002 implements IMigration
 {
     public static function getName()
@@ -8,7 +9,8 @@ class M002 implements IMigration
 
     public static function run()
     {
-        db::getInstance()->Query('UPDATE pages SET status=:status', [ 'status' => Status::Active]);
+        db::getInstance()->Query('UPDATE pages SET status=:status', ['status' => Status::Active]);
     }
 }
+
 ?>

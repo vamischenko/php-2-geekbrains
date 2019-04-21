@@ -99,7 +99,6 @@ $(document).ready(function () {
     });
 
 
-
     $(document).on('click', '.cart-product__delete-btn', function () {
         let id = $(this).attr('data-id');
 

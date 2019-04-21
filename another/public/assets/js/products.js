@@ -13,7 +13,7 @@ $(document).ready(function () {
     $(document).on('click', '.products-btn', function () {
         let $limit1 = parseInt($(this).attr('data-limit'));
         $productAdd.addGoods($goods, $limit1, $limitMax);
-        $(this).attr('data-limit', ($limit1+4));
+        $(this).attr('data-limit', ($limit1 + 4));
     })
     // let arr = [];
     // let $goodItemCount = 8;

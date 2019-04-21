@@ -7,9 +7,11 @@ use app\common\models\Page;
 use system\components\Controller;
 
 
-class PageController extends Controller {
+class PageController extends Controller
+{
 
-    public function actionIndex() {
+    public function actionIndex()
+    {
         $pages = Page::findAll();
 
         return $this->render(
@@ -18,7 +20,8 @@ class PageController extends Controller {
         );
     }
 
-    public function actionView($id) {
+    public function actionView($id)
+    {
         $model = Page::findById($id);
 
         return $this->render('view', [

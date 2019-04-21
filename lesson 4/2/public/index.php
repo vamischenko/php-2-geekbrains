@@ -7,8 +7,8 @@ require_once ENGINE_DIR . 'db.php';
 
 require_once '../config/router.php';
 
-require_once MODEL_DIR.'cart/cart.php';
-require_once MODEL_DIR.'user/user.php';
+require_once MODEL_DIR . 'cart/cart.php';
+require_once MODEL_DIR . 'user/user.php';
 
 session_start();
 
@@ -18,10 +18,10 @@ if (isset($_GET['page']) && $_GET['page']) {
     $page = preg_replace('/[^a-z]/i', '', $_GET['page']);
     $page = getRoute($page);
     if (!$page) {
-        $page = getRoute( 'products');
+        $page = getRoute('products');
     }
 } else {
-    $page = getRoute( 'products');
+    $page = getRoute('products');
 }
 
 if ($page && file_exists($page)) {

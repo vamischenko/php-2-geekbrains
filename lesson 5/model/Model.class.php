@@ -1,6 +1,7 @@
 <?php
 
-abstract class Model {
+abstract class Model
+{
 
     protected static $table;
     protected static $properties = array(
@@ -54,15 +55,15 @@ abstract class Model {
             $query .= ' `' . $property . '`';
 
             $query .= ' ' . $params['type'];
-            if ( isset($params['size'])) {
-                $query .= '(' .$params['size'] .')';
+            if (isset($params['size'])) {
+                $query .= '(' . $params['size'] . ')';
             }
 
-            if( isset ($params['unsigned']) && $params['unsigned']) {
+            if (isset ($params['unsigned']) && $params['unsigned']) {
                 $query .= ' UNSIGNED';
             }
 
-            if( isset ($params['autoincrement']) && $params['autoincrement']) {
+            if (isset ($params['autoincrement']) && $params['autoincrement']) {
                 $query .= ' AUTO_INCREMENT';
             }
             $query .= ',' . "\n";
@@ -73,25 +74,30 @@ abstract class Model {
         return true;
     }
 
+    protected final static function tableExists()
+    {
+        return count(db::getInstance()->select('SHOW TABLES LIKE "' . static::$table . '"')) > 0;
+    }
+
     public function __get($name)
     {
         $this->checkProperty($name);
         $return = null;
 
-        switch(static::$property['type']) {
+        switch (static::$property['type']) {
             case 'int':
                 return (int)$this->$name;
-                // break;
+            // break;
             default:
                 return (string)$this->$name;
-                // break;
+            // break;
         }
     }
 
     public function __set($name, $value)
     {
         $this->checkProperty($name);
-        switch(static::$properties[$name]['type']) {
+        switch (static::$properties[$name]['type']) {
             case 'int':
                 $this->$name = (int)$value;
                 break;
@@ -104,11 +110,6 @@ abstract class Model {
         }
     }
 
-    protected final static function tableExists()
-    {
-        return count(db::getInstance()->select('SHOW TABLES LIKE "' . static::$table . '"')) > 0;
-    }
-
     protected final function checkProperty($name)
     {
         if (!isset(static::$properties[$name])) {
@@ -119,4 +120,5 @@ abstract class Model {
         }
     }
 }
+
 ?>

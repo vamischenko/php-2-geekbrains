@@ -62,7 +62,6 @@ class Basket {
         $cartCount.empty();
 
 
-
         let $cartTotalPrice = $('<div />', {
             class: "cart-total"
         });
@@ -92,7 +91,7 @@ class Basket {
             this.goodId = parseInt(this.basketItems[key].id_good);
             this.imgSrc = this.basketItems[key].image;
             this.goodName = this.basketItems[key].name;
-            this.goodCount =  parseInt(this.basketItems[key].col);
+            this.goodCount = parseInt(this.basketItems[key].col);
             this.goodPrice = parseInt(this.basketItems[key].price);
             this.goodAmount = parseInt(this.basketItems[key].amount);
             // console.log(this.basketItems[key]);

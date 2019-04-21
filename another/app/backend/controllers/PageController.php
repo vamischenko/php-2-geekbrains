@@ -7,9 +7,11 @@ use app\common\models\Page;
 use system\components\App;
 use system\components\Controller;
 
-class PageController extends Controller {
+class PageController extends Controller
+{
 
-    public function actionCreate() {
+    public function actionCreate()
+    {
 
         $model = new Page();
 
@@ -17,7 +19,7 @@ class PageController extends Controller {
             if ($model->load(App::$current->request->post())) {
                 if ($model->save()) {
                     App::$current->request->redirect(
-                        'page/view?id='.$model->id
+                        'page/view?id=' . $model->id
                     );
                 } else {
                     $model->addError('title', 'Error');

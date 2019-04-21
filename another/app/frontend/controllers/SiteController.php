@@ -6,12 +6,14 @@ use app\frontend\models\User;
 use system\components\App;
 use system\components\Controller;
 
-class SiteController extends Controller {
+class SiteController extends Controller
+{
 
     /**
      * 'site/index' action handler
      */
-    public function actionIndex() {
+    public function actionIndex()
+    {
 //
         // create new User model
         if (isset($_SESSION['user_id'])) {

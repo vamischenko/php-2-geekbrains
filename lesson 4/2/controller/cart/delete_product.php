@@ -2,7 +2,7 @@
 
 $cart = new Cart('cart');
 
-$id = (int) $_GET['id'];
+$id = (int)$_GET['id'];
 
 
 $cart->delete($id);

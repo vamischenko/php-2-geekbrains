@@ -1,13 +1,16 @@
 <?php
+
 namespace app\frontend\controllers;
 
 use app\frontend\models\Basket;
 use system\components\Controller;
 
 
-class BasketController extends Controller {
+class BasketController extends Controller
+{
 
-    public function actionBuy() {
+    public function actionBuy()
+    {
         $id_session = $_SESSION['id'];
         $id_good = $_POST['id_good'];
         $count = 1;
@@ -44,13 +47,13 @@ class BasketController extends Controller {
         }
     }
 
-    public function actionChange() {
+    public function actionChange()
+    {
         $id_session = $_SESSION['id'];
 //        echo $_POST;
         $sign = $_POST['sign'];
         $id_good = $_POST['id_good'];
         $price = $_POST['price'];
-
 
 
 //        echo $sign . "<br>";
@@ -75,13 +78,15 @@ class BasketController extends Controller {
 
     }
 
-    public function actionDelete() {
+    public function actionDelete()
+    {
         $id_good = $_POST['id_good'];
 
         Basket::del($id_good);
     }
 
-    public function actionGet() {
+    public function actionGet()
+    {
         $table = 'goods';
         $column = 'id_good';
 

@@ -51,11 +51,6 @@ class Twig_Parser
         return sprintf('__internal_%s', hash('sha256', uniqid(mt_rand(), true), false));
     }
 
-    public function getFilename()
-    {
-        return $this->stream->getFilename();
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -205,6 +200,54 @@ class Twig_Parser
         return new Twig_Node($rv, array(), $lineno);
     }
 
+    /**
+     * Gets the current token.
+     *
+     * @return Twig_Token The current token
+     */
+    public function getCurrentToken()
+    {
+        return $this->stream->getCurrent();
+    }
+
+    public function getFilename()
+    {
+        return $this->stream->getFilename();
+    }
+
+    private function filterBodyNodes(Twig_Node $node)
+    {
+        // check that the body does not contain non-empty output nodes
+        if (
+            ($node instanceof Twig_Node_Text && !ctype_space($node->getAttribute('data')))
+            ||
+            (!$node instanceof Twig_Node_Text && !$node instanceof Twig_Node_BlockReference && $node instanceof Twig_NodeOutputInterface)
+        ) {
+            if (false !== strpos((string)$node, chr(0xEF) . chr(0xBB) . chr(0xBF))) {
+                throw new Twig_Error_Syntax('A template that extends another one cannot have a body but a byte order mark (BOM) has been detected; it must be removed.', $node->getLine(), $this->getFilename());
+            }
+
+            throw new Twig_Error_Syntax('A template that extends another one cannot have a body.', $node->getLine(), $this->getFilename());
+        }
+
+        // bypass "set" nodes as they "capture" the output
+        if ($node instanceof Twig_Node_Set) {
+            return $node;
+        }
+
+        if ($node instanceof Twig_NodeOutputInterface) {
+            return;
+        }
+
+        foreach ($node as $k => $n) {
+            if (null !== $n && null === $this->filterBodyNodes($n)) {
+                $node->removeNode($k);
+            }
+        }
+
+        return $node;
+    }
+
     public function addHandler($name, $class)
     {
         $this->handlers[$name] = $class;
@@ -265,7 +308,7 @@ class Twig_Parser
      */
     public function isReservedMacroName($name)
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 2.0 and will be removed in 3.0.', E_USER_DEPRECATED);
+        @trigger_error('The ' . __METHOD__ . ' method is deprecated since version 2.0 and will be removed in 3.0.', E_USER_DEPRECATED);
 
         return false;
     }
@@ -344,48 +387,5 @@ class Twig_Parser
     public function getStream()
     {
         return $this->stream;
-    }
-
-    /**
-     * Gets the current token.
-     *
-     * @return Twig_Token The current token
-     */
-    public function getCurrentToken()
-    {
-        return $this->stream->getCurrent();
-    }
-
-    private function filterBodyNodes(Twig_Node $node)
-    {
-        // check that the body does not contain non-empty output nodes
-        if (
-            ($node instanceof Twig_Node_Text && !ctype_space($node->getAttribute('data')))
-            ||
-            (!$node instanceof Twig_Node_Text && !$node instanceof Twig_Node_BlockReference && $node instanceof Twig_NodeOutputInterface)
-        ) {
-            if (false !== strpos((string) $node, chr(0xEF).chr(0xBB).chr(0xBF))) {
-                throw new Twig_Error_Syntax('A template that extends another one cannot have a body but a byte order mark (BOM) has been detected; it must be removed.', $node->getLine(), $this->getFilename());
-            }
-
-            throw new Twig_Error_Syntax('A template that extends another one cannot have a body.', $node->getLine(), $this->getFilename());
-        }
-
-        // bypass "set" nodes as they "capture" the output
-        if ($node instanceof Twig_Node_Set) {
-            return $node;
-        }
-
-        if ($node instanceof Twig_NodeOutputInterface) {
-            return;
-        }
-
-        foreach ($node as $k => $n) {
-            if (null !== $n && null === $this->filterBodyNodes($n)) {
-                $node->removeNode($k);
-            }
-        }
-
-        return $node;
     }
 }

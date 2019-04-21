@@ -1,7 +1,9 @@
 <?php
+
 class AdminController extends Controller
 {
-    
+
+    public $title = 'admin';
     protected $controls = array(
         'pages' => 'Page',
         'orders' => 'Order',
@@ -9,8 +11,6 @@ class AdminController extends Controller
         'goods' => 'Good'
     );
 
-    public $title = 'admin';
-    
     public function index($data)
     {
         return array('controls' => $this->controls);
@@ -42,7 +42,7 @@ class AdminController extends Controller
             }
         }
 
-        switch($actionId['action']) {
+        switch ($actionId['action']) {
             case 'create':
                 $query = 'INSERT INTO ' . $data['id'] . ' ';
                 $keys = array();
@@ -56,8 +56,7 @@ class AdminController extends Controller
                 db::getInstance()->Query($query);
                 break;
             case 'save':
-                $query = 'UPDATE ' . $data['id'] . ' SET ';
-                ;
+                $query = 'UPDATE ' . $data['id'] . ' SET ';;
                 foreach ($fields as $field => $value) {
                     $query .= $field . ' = "' . $value . '",';
                 }

@@ -2,14 +2,15 @@
 
 namespace app\frontend\controllers;
 
-use system\components\Controller;
 use app\frontend\models\User;
+use system\components\Controller;
 
 class UserController extends Controller
 {
 
 
-    public function actionLogin() {
+    public function actionLogin()
+    {
         $login = strip_tags(htmlspecialchars(trim($_POST['login'])));
         $password = md5(trim($_POST['password']));
         $user = User::findOne(['user_login' => $login]);
@@ -22,7 +23,8 @@ class UserController extends Controller
         }
     }
 
-    public function actionLogout() {
+    public function actionLogout()
+    {
         unset($_SESSION['user_id']);
         session_destroy();
         header("Location: /");
@@ -34,7 +36,8 @@ class UserController extends Controller
 //        header("Location: /");
     }
 
-    public function actionRegister() {
+    public function actionRegister()
+    {
 
     }
 }

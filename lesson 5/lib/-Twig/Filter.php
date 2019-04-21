@@ -26,9 +26,9 @@ class Twig_Filter
     /**
      * Creates a template filter.
      *
-     * @param string        $name     Name of this filter
+     * @param string $name Name of this filter
      * @param callable|null $callable A callable implementing the filter. If null, you need to overwrite the "node_class" option to customize compilation.
-     * @param array         $options  Options array
+     * @param array $options Options array
      */
     public function __construct($name, $callable = null, array $options = array())
     {
@@ -68,14 +68,14 @@ class Twig_Filter
         return $this->options['node_class'];
     }
 
-    public function setArguments($arguments)
-    {
-        $this->arguments = $arguments;
-    }
-
     public function getArguments()
     {
         return $this->arguments;
+    }
+
+    public function setArguments($arguments)
+    {
+        $this->arguments = $arguments;
     }
 
     public function needsEnvironment()
@@ -116,7 +116,7 @@ class Twig_Filter
 
     public function isDeprecated()
     {
-        return (bool) $this->options['deprecated'];
+        return (bool)$this->options['deprecated'];
     }
 
     public function getDeprecatedVersion()

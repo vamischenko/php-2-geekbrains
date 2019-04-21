@@ -2,17 +2,14 @@
 
 namespace system\components;
 
-use Twig_Loader_Filesystem;
 use Twig_Environment;
+use Twig_Loader_Filesystem;
 
-class Debug {
+class Debug
+{
 
-    public static function trace(\Exception $error) {
-        echo $error->getMessage();
-        die();
-    }
-
-    public static function error($message) {
+    public static function error($message)
+    {
         $loader = new Twig_Loader_Filesystem(
             App::$current->config['components']['twig']['templates']
         );
@@ -29,6 +26,12 @@ class Debug {
         } catch (\Exception $e) {
             Debug::trace($e);
         }
+    }
+
+    public static function trace(\Exception $error)
+    {
+        echo $error->getMessage();
+        die();
     }
 
 }

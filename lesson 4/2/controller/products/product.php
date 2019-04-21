@@ -1,21 +1,19 @@
 <?php
 
-require_once MODEL_DIR.'products/product.php';
+require_once MODEL_DIR . 'products/product.php';
 
 include CONTROLLER_DIR . 'cart/informer.php';
 include CONTROLLER_DIR . 'user/informer.php';
 
-$id = (int) $_GET['id'];
+$id = (int)$_GET['id'];
 
 $product = getProductById($id);
 
-if(empty($product)) {
+if (empty($product)) {
     render('404');
     exit;
 }
 echo render('product', $product);
-
-
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'

@@ -11,12 +11,12 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '.btn-up', function () {
-       $('body').animate({'scrollTop': 0}, 2000);
-       $('html').animate({'scrollTop': 0}, 2000);
+        $('body').animate({'scrollTop': 0}, 2000);
+        $('html').animate({'scrollTop': 0}, 2000);
     });
 
     // Выпадающее меню в форме поиска
-    $(document).on('click', '.browse-box__title', function(){
+    $(document).on('click', '.browse-box__title', function () {
         $('.browse-box__list').slideToggle(500);
         console.log(this);
         $('.browse-box__title .fa').toggleClass('active');
@@ -39,8 +39,8 @@ $(document).ready(function () {
         $('.my-account-panel').slideToggle(500);
         // $('#my-account-panel').toggleClass('show');
     });
-        // if ($('#login-trigger').hasClass('active')) $('#login-trigger').find('span').html('&#x25B2;');
-        // else $('#login-trigger').find('span').html('&#x25BC;');
+    // if ($('#login-trigger').hasClass('active')) $('#login-trigger').find('span').html('&#x25B2;');
+    // else $('#login-trigger').find('span').html('&#x25BC;');
     // Рендеринг товаров в случайном порядке
     // let $goods = $('.products-list');
     // let arr = [];

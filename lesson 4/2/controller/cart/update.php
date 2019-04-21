@@ -6,8 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'
     && is_array($_POST['quantity'])) {
 
     foreach ($_POST['quantity'] as $productId => $quantity) {
-        $productId = (int) $productId;
-        $quantity  = (int) $quantity;
+        $productId = (int)$productId;
+        $quantity = (int)$quantity;
 
         //если ноль удаляем
         if ($quantity <= 0) {

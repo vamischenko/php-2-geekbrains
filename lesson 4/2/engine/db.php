@@ -5,19 +5,20 @@
  * @param null $db
  * @return array
  */
-function getAssocResultAll($sql, $db = null){
+function getAssocResultAll($sql, $db = null)
+{
     if ($db == null) {
         $db = getConnection();
     }
 
-	$result = mysqli_query($db, $sql);
-	$array_result = array();
+    $result = mysqli_query($db, $sql);
+    $array_result = array();
 
-	while($row = mysqli_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
         $array_result[] = $row;
     }
 
-	return $array_result;
+    return $array_result;
 }
 
 /**
@@ -26,7 +27,8 @@ function getAssocResultAll($sql, $db = null){
  * @param null $db
  * @return array|mixed
  */
-function getAssocResultOne($sql, $db = null) {
+function getAssocResultOne($sql, $db = null)
+{
     if ($db == null) {
         $db = getConnection();
     }
@@ -43,7 +45,8 @@ function getAssocResultOne($sql, $db = null) {
  * Выполнить соединение с базой
  * @return mysqli
  */
-function getConnection(){
+function getConnection()
+{
     //хак, чтобы не поднимать каждый раз соединение
     static $db = null;
 
@@ -70,20 +73,22 @@ function getConnection(){
  * @param null $db
  * @return bool|mysqli_result
  */
-function executeQuery($sql, $db = null){
-    if($db == null){
+function executeQuery($sql, $db = null)
+{
+    if ($db == null) {
         $db = getConnection();
     }
 
-	$result = mysqli_query($db, $sql);
+    $result = mysqli_query($db, $sql);
 
-	return $result;
+    return $result;
 }
 
 /** Получить последний ID
  * @return int|string
  */
-function getLastId() {
+function getLastId()
+{
     $db = getConnection();
     return mysqli_insert_id($db);
 }
@@ -94,7 +99,8 @@ function getLastId() {
  * @param null $db
  * @return string
  */
-function escapeString($str, $db = null) {
+function escapeString($str, $db = null)
+{
     if ($db == null) {
         $db = getConnection();
     }
@@ -105,7 +111,8 @@ function escapeString($str, $db = null) {
 }
 
 
-function hashPass($pass) {
+function hashPass($pass)
+{
 //    $salt = 'asdkljhf78yaesw8ft28gf8asgf8i2gqf82737gaigs78';
 //    $salt2 = 'sdf899ty7d7856fgy32fg78g';
 //    return md5(md5($salt2 . $pass . $salt));

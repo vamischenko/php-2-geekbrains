@@ -1,24 +1,25 @@
 <?php
+
 abstract class Product
 {
     private $price;
-
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    }
 
     public function getPrice()
     {
         return $this->price;
     }
 
-    abstract public function calculation();
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
 
     public function income()
     {
         return $this->calculation() * 0.2;
     }
+
+    abstract public function calculation();
 
 }
 
@@ -27,9 +28,9 @@ class ProductWeight extends Product
 {
     private $weight;
 
-    public function setWeight($weight)
+    public function calculation()
     {
-        $this->weight = $weight;
+        return $this->getPrice() * $this->getWeight();
     }
 
     public function getWeight()
@@ -37,9 +38,9 @@ class ProductWeight extends Product
         return $this->weight;
     }
 
-    public function calculation()
+    public function setWeight($weight)
     {
-        return $this->getPrice() * $this->getWeight();
+        $this->weight = $weight;
     }
 
 }
@@ -48,7 +49,7 @@ class ProductDigital extends Product
 {
     public function calculation()
     {
-        return $this->getPrice()/2;
+        return $this->getPrice() / 2;
     }
 }
 

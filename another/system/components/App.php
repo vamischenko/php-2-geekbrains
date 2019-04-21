@@ -12,35 +12,34 @@ namespace system\components;
  * @var $controller Controller
  * @var $action string
  */
-class App extends BaseObject {
+class App extends BaseObject
+{
 
     use Singleton; // singleton trait
 
     /**
-     * @var array
-     */
-    public $config; // app global configuration
-
-    /**
-     * @var Request
-     */
-    public $request; // GET & POST handler
-
-    /**
-     * @var \PDO
-     */
-    public $connection; // database PDO object
-
-    /**
      * @var App
      */
-    public static $current; // singleton instance
+    public static $current; // app global configuration
+/**
+     * @var array
+     */
+    public $config; // GET & POST handler
+/**
+     * @var Request
+     */
+    public $request; // database PDO object
+/**
+     * @var \PDO
+     */
+    public $connection; // singleton instance
 
     /**
      * App constructor (singleton)
      * @param array $config
      */
-    public function __construct(array $config) {
+    public function __construct(array $config)
+    {
         if (empty(static::$current)) {
             $this->config = $config;
             static::$current = $this;
@@ -52,7 +51,8 @@ class App extends BaseObject {
     /**
      * Start main loop
      */
-    public function start() {
+    public function start()
+    {
         $this->connection = $this->setConnection();
         $this->request = new Request();
 
@@ -64,7 +64,8 @@ class App extends BaseObject {
     /**
      * Creates DB connection with PDO
      */
-    private function setConnection() {
+    private function setConnection()
+    {
         $settings = $this->config['db'];
 
         $host = $settings['host'];

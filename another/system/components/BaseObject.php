@@ -6,7 +6,8 @@ namespace system\components;
  * Class BaseObject
  * @package system\components
  */
-class BaseObject {
+class BaseObject
+{
 
     /**
      * Magic method to get property values
@@ -14,7 +15,8 @@ class BaseObject {
      * @param string $name method name
      * @return mixed
      */
-    public function __get($name) {
+    public function __get($name)
+    {
         $magicGet = "get" . ucfirst($name);
 
         if (method_exists($this, $magicGet)) {
@@ -36,7 +38,8 @@ class BaseObject {
      * @param mixed $value new property value
      * @return mixed
      */
-    public function __set($name, $value) {
+    public function __set($name, $value)
+    {
         $magicSet = "set" . ucfirst($name);
 
         if (method_exists($this, $magicSet)) {

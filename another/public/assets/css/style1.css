@@ -4,9 +4,9 @@
  */
 
 /*html, body {*/
-    /*margin: 0;*/
-    /*height: 100%;*/
-    /*background-color: #ccc;*/
+/*margin: 0;*/
+/*height: 100%;*/
+/*background-color: #ccc;*/
 /*}*/
 
 .login-form ul {
@@ -21,15 +21,18 @@
     -webkit-border-radius: 3px;
     border-radius: 3px;
 }
+
 .login-form li {
     float: left;
 }
+
 .login-form #login {
     border-right: 1px solid #ddd;
     -moz-box-shadow: 1px 0 0 #fff;
     -webkit-box-shadow: 1px 0 0 #fff;
     box-shadow: 1px 0 0 #fff;
 }
+
 .login-form #login-trigger,
 .login-form #signup a {
     display: inline-block;
@@ -43,21 +46,25 @@
     color: #444;
     text-shadow: 0 1px 0 #fff;
 }
+
 .login-form #signup a {
     -moz-border-radius: 0 3px 3px 0;
     -webkit-border-radius: 0 3px 3px 0;
     border-radius: 0 3px 3px 0;
 }
+
 .login-form #login-trigger {
     -moz-border-radius: 3px 0 0 3px;
     -webkit-border-radius: 3px 0 0 3px;
     border-radius: 3px 0 0 3px;
 }
+
 .login-form #login-trigger:hover,
 .login-form #login .active,
 .login-form #signup a:hover {
     background: #fff;
 }
+
 #login-content {
     display: none;
     position: absolute;
@@ -74,15 +81,17 @@
     padding: 15px;
     /*-moz-box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);*/
     /*-webkit-box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);*/
-    box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .9);
     /*-moz-border-radius: 3px 0 3px 3px;*/
     /*-webkit-border-radius: 3px 0 3px 3px;*/
     border-radius: 3px 0 3px 3px;
 }
+
 .login-form li #login-content {
     right: 0;
     width: 250px;
 }
+
 /*--------------------*/
 #inputs input {
     background: #f1f1f1;
@@ -97,6 +106,7 @@
     -webkit-box-shadow: 0 1px 1px #ccc inset;
     box-shadow: 0 1px 1px #ccc inset;
 }
+
 #inputs input:focus {
     background-color: #fff;
     border-color: #e8c291;
@@ -105,10 +115,12 @@
     -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
     box-shadow: 0 0 0 1px #e8c291 inset;
 }
+
 /*--------------------*/
 #login #actions {
     margin: 10px 0 0 0;
 }
+
 #login #submit {
     background-color: #d14545;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#e97171), to(#d14545));
@@ -120,7 +132,7 @@
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
@@ -133,6 +145,7 @@
     font: bold 14px Arial, Helvetica;
     color: #fff;
 }
+
 #login #submit:hover,
 #login #submit:focus {
     background-color: #e97171;
@@ -143,19 +156,23 @@
     background-image: -o-linear-gradient(top, #d14545, #e97171);
     background-image: linear-gradient(top, #d14545, #e97171);
 }
+
 #login #submit:active {
     outline: none;
     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
 }
+
 #login #submit::-moz-focus-inner {
     border: none;
 }
+
 #login label {
     float: right;
     line-height: 30px;
 }
+
 #login label input {
     position: relative;
     top: 2px;

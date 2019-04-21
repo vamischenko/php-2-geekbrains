@@ -31,11 +31,33 @@ class Cart
         $this->sessionKey = $sessionKey;
 
 
-        if(isset($_SESSION[$sessionKey])) {
+        if (isset($_SESSION[$sessionKey])) {
             $this->cart = $_SESSION[$sessionKey];
         }
 
         $this->upData();
+    }
+
+    /**
+     * Обновляем сумму и количество
+     */
+    private function upData()
+    {
+
+        $sum = 0;
+        $quantity = 0;
+
+        foreach ($this->cart as $productId => $value) {
+
+            $quantity += (int)$value['quantity'];
+
+            $sum += (float)$value['price'] * (int)$value['quantity'];
+        }
+
+        $this->sum = $sum;
+        $this->quantity = $quantity;
+
+
     }
 
     /**
@@ -57,28 +79,6 @@ class Cart
     }
 
     /**
-     * Обновляем сумму и количество
-     */
-    private function upData()
-    {
-
-        $sum = 0;
-        $quantity = 0;
-
-        foreach ($this->cart as $productId => $value) {
-
-            $quantity += (int)  $value['quantity'];
-
-            $sum      += (float)  $value['price'] * (int) $value['quantity'];
-        }
-
-        $this->sum = $sum;
-        $this->quantity = $quantity;
-
-
-    }
-
-    /**
      * Метод добавляет или обнвляет товар в корзине
      * @param $productId
      * @param $name
@@ -88,17 +88,17 @@ class Cart
      */
     public function addOrUpdate($productId, $name, $quantity, $price, $img)
     {
-        if($this->isCart($productId)) {
+        if ($this->isCart($productId)) {
             $quantity = $this->cart[$productId]['quantity'] + $quantity;
         }
 
 
         $this->cart[$productId] = array(
-            'quantity' => (int) $quantity,
-            'price'    => (float) $price,
-            'name'     => htmlspecialchars($name),
-            'img'      => htmlspecialchars($img),
-            'sum'     => (int) $quantity * (float) $price
+            'quantity' => (int)$quantity,
+            'price' => (float)$price,
+            'name' => htmlspecialchars($name),
+            'img' => htmlspecialchars($img),
+            'sum' => (int)$quantity * (float)$price
         );
 
         $this->upData();
@@ -109,24 +109,38 @@ class Cart
     }
 
     /**
+     * Метод проверяет есть ли товар в корзине
+     * @param $productId
+     * @return bool
+     */
+    public function isCart($productId)
+    {
+        if (isset($this->cart[$productId])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Метод обновляет кол-во
      * @param $productId
      * @param $quantity
      */
     public function updateQuantity($productId, $quantity)
     {
-        $quantity  = (int) $quantity;
-        $productId = (int) $productId;
+        $quantity = (int)$quantity;
+        $productId = (int)$productId;
 
 
-        if(!$this->isCart($productId)) {
+        if (!$this->isCart($productId)) {
             return;
         }
 
         $price = $this->cart[$productId]['price'];
 
-        $this->cart[$productId]['quantity'] =  (int) $quantity;
-        $this->cart[$productId]['sum'] = (int) $quantity * (float) $price;
+        $this->cart[$productId]['quantity'] = (int)$quantity;
+        $this->cart[$productId]['sum'] = (int)$quantity * (float)$price;
 
 
         $this->upData();
@@ -173,20 +187,5 @@ class Cart
     public function isEmpty()
     {
         return empty($this->cart);
-    }
-
-
-    /**
-     * Метод проверяет есть ли товар в корзине
-     * @param $productId
-     * @return bool
-     */
-    public function isCart($productId)
-    {
-        if (isset($this->cart[$productId])) {
-            return true;
-        }
-
-        return false;
     }
 }

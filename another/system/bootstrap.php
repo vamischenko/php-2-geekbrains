@@ -12,7 +12,7 @@ if (DEBUG) {
 // register class loader
 spl_autoload_register(function ($className) {
     $class = str_replace("\\", DIRECTORY_SEPARATOR, $className);
-    $class = ROOT."/{$class}.php";
+    $class = ROOT . "/{$class}.php";
 
     if (file_exists($class)) {
         require_once $class;

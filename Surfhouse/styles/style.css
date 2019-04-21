@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,800,900');
 @import url('../fonts/verdana.ttf');
+
 * {
     margin: 0;
     padding: 0;
@@ -188,7 +189,7 @@ body {
     list-style-type: none;
 }
 
-.menu>li:first-child {
+.menu > li:first-child {
     background-color: #333333;
     height: 66px;
     color: #ffffff;
@@ -568,7 +569,7 @@ body {
     box-shadow: 0 0 15px #555555;
 }
 
-.product-page-images>a:first-child {
+.product-page-images > a:first-child {
     margin-left: 50px;
 }
 

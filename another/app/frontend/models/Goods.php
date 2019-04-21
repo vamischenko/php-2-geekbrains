@@ -1,4 +1,5 @@
 <?php
+
 namespace app\frontend\models;
 
 use system\components\ActiveRecord;
@@ -7,7 +8,8 @@ use system\components\ActiveRecord;
  * Class User
  * @package app\frontend\models
  */
-class Goods extends ActiveRecord {
+class Goods extends ActiveRecord
+{
 
 //    public function getBasket() {
 //
